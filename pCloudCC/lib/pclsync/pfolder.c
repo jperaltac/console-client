@@ -879,7 +879,7 @@ typedef struct {
   psync_synctype_t synctype;
 } psync_tmp_folder_t;
 
-psync_folder_list_t *psync_list_get_list(char* syncTypes){
+psync_folder_list_t *psync_list_get_list(const char* syncTypes){
   psync_sql_res *res;
   psync_variant_row row;
   psync_tmp_folder_t *folders;

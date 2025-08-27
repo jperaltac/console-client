@@ -10,6 +10,7 @@
 #include "string.h"
 #include "stdlib.h"
 #include "pnetlibs.h"
+#include <stdio.h>
 
 #if defined(P_OS_WINDOWS)
 #define _CRT_SECURE_NO_WARNINGS
@@ -398,7 +399,7 @@ char* get_machine_name() {
   return psync_strdup(pcName);
 }
 /*************************************************************/
-void parse_os_path(char* path, folderPath* folders, char delim, int mode) {
+void parse_os_path(const char* path, folderPath* folders, char delim, int mode) {
   char fName[255];
   char* buff;
   int i = 0, j = 0, k = 0;
