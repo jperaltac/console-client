@@ -87,20 +87,20 @@ Notice that a new user may take a while to mount. Please, be patient.
 
 > pcloudcc -u example@myemail.com -k  
 
-Or starting the daemon with -o. Test unlocking and locking crypto if you have subscription for it.   
+ Or starting the daemon with -o. Test unlocking and locking crypto if you have subscription for it.
 
-- Quit the client. Congratulations, your pcloud console client works properly.  You can now add “pcloudcc -u example@myemail.com -d” command in you startup scripts  and thous mount the file system on startup.  
+- Quit the client. Congratulations, your pcloud console client works properly.  You can now add “pcloudcc -u example@myemail.com -d” command in your startup scripts and thus mount the file system on startup.
 
 **Notice that stopping daemon will break pending background transfers!**
 
-Current version of `pcloudcc` doesn't support command to check if threre are pending transfers.
-Locally cached files are located under `~/.pcloud/Cache` dir. When there is only one file `~/.pcloud/Cache/cached` (ususally big sized) this mean that transfers are completed.
+Current version of `pcloudcc` doesn't support command to check if there are pending transfers.
+Locally cached files are located under `~/.pcloud/Cache` dir. When there is only one file `~/.pcloud/Cache/cached` (usually big sized) this mean that transfers are completed.
 
 ## Debian
-To create a debian package form the source use:  
+To create a debian package from the source use:
 > debuild -i -us -uc -b  
 
-## Older pre-built packages (no EU server supprt)
+## Older pre-built packages (no EU server support)
 - Ubuntu 18.04 64 bit
   [pcloudcc_2.1.0-1_amd64_ubuntu.18.04.deb](https://my.pcloud.com/publink/show?code=XZvLyi7Zsz7t1H0aYIFiawL4LSgN3uxLBUJX)
 - Debian 9.9 64 bit

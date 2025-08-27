@@ -34,17 +34,26 @@ static int clbnum = 0;
 
 void padd_monitor_callback(device_event_callback callback) {
 	if (callback) {
-		if (clbnum == 0)
-			callbacks = (device_event_callback *)psync_malloc(sizeof(device_event_callback)*clbsize);
-		else {
-			while (clbnum > clbsize) {
-				device_event_callback *callbacks_old = callbacks;
-				callbacks = (device_event_callback *)psync_malloc(sizeof(device_event_callback)*clbsize*2);
-				memccpy(callbacks, callbacks_old, 0,sizeof(device_event_callback)*clbsize);
-				clbsize = clbsize * 2;
-				psync_free(callbacks_old);
-			}
-		}
+                if (clbnum == 0)
+                        callbacks = (device_event_callback *)psync_malloc(sizeof(device_event_callback)*clbsize);
+                else {
+                        /*
+                         * Ensure there is enough space for the new callback.
+                         * Use >= so the array is resized when it is exactly full.
+                         */
+                        while (clbnum >= clbsize) {
+                                device_event_callback *callbacks_old = callbacks;
+                                callbacks = (device_event_callback *)psync_malloc(sizeof(device_event_callback)*clbsize*2);
+                                /*
+                                 * memccpy stops copying when a byte with a given value is
+                                 * encountered which is not appropriate for an array of
+                                 * function pointers. Use memcpy to copy the whole block.
+                                 */
+                                memcpy(callbacks, callbacks_old, sizeof(device_event_callback)*clbsize);
+                                clbsize = clbsize * 2;
+                                psync_free(callbacks_old);
+                        }
+                }
 		callbacks[clbnum] = callback;
 		clbnum++;
 	}
