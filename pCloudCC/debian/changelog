@@ -1,5 +1,13 @@
+pcloudcc (2.0.1-2) unstable; urgency=medium
+
+  * Update Debian packaging for modern systems.
+  * Switch to debhelper-compat 13 and add missing build dependencies.
+  * Update Standards-Version to 4.6.2.
+
+ -- ChatGPT <openai@example.com>  Wed, 27 Aug 2025 17:54:03 +0000
+
 pcloudcc (2.0.1-1) trusty; urgency=low
 
-  * Initial release 
+  * Initial release
 
  -- Ivan Stoev <ivan.stoev@pcloud.com>  Tue, 05 Apr 2016 16:58:02 +0300
