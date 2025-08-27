@@ -38,18 +38,12 @@
 #define FOLDER_ID          "folderid"
 #define PARENT_FOLDER_NAME "parentname"
 
-//Parser delimeter symbols
+// Parser delimiter symbols
 #define DELIM_SEMICOLON ';'
 
 #if defined(P_OS_WINDOWS)
 #define DELIM_DIR   '\\'
-#endif
-
-#if defined(P_OS_LINUX)
-#define DELIM_DIR  '/'
-#endif
-
-#if defined(P_OS_MACOSX)
+#elif defined(P_OS_LINUX) || defined(P_OS_MACOSX)
 #define DELIM_DIR  '/'
 #endif
 
@@ -86,7 +80,7 @@ char* getMACaddr();
 /**********************************************************************************************************/
 char* get_machine_name();
 /**********************************************************************************************************/
-void parse_os_path(char* path, folderPath* folders, char* delim, int mode);
+void parse_os_path(char* path, folderPath* folders, char delim, int mode);
 /**********************************************************************************************************/
 void send_psyncs_event(const char* binapi,
                        const char* auth);

@@ -398,7 +398,7 @@ char* get_machine_name() {
   return psync_strdup(pcName);
 }
 /*************************************************************/
-void parse_os_path(char* path, folderPath* folders, char* delim, int mode) {
+void parse_os_path(char* path, folderPath* folders, char delim, int mode) {
   char fName[255];
   char* buff;
   int i = 0, j = 0, k = 0;
@@ -411,7 +411,7 @@ void parse_os_path(char* path, folderPath* folders, char* delim, int mode) {
     if (path[i] != delim) {
       if ((path[i] == ':') && (mode == 1)) {
         //In case we meet a ":" as in C:\ we set the name to Drive + the string before the ":"
-        fName[k] = NULL;
+      fName[k] = 0;
         buff = psync_strcat("Drive ", &fName, NULL);
         psync_strlcpy(fName, buff, strlen(buff)+1);
 
