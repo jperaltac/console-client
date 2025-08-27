@@ -303,7 +303,9 @@ void psync_start_sync(pstatus_change_callback_t status_callback, pevent_callback
   psync_p2p_init();
   if (psync_setting_get_bool(_PS(autostartfs)))
     psync_fs_start();
+  #ifndef P_DEVMON_OFF
   psync_devmon_init();
+  #endif
 }
 
 void psync_set_notification_callback(pnotification_callback_t notification_callback, const char *thumbsize){
