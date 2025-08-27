@@ -11,12 +11,12 @@ This is a simple linux console client for pCloud cloud storage.
 Also requires   
 [CMake](https://cmake.org/) build system.  
 
-On Ubuntu you can run the following command:  
-> sudo apt-get install cmake zlib1g-dev libboost-system-dev libboost-program-options-dev libpthread-stubs0-dev libfuse-dev libudev-dev
+On Ubuntu you can run the following command:
+> sudo apt-get install cmake pkg-config zlib1g-dev libboost-system-dev libboost-program-options-dev libpthread-stubs0-dev libfuse-dev libudev-dev
 
 ## Build steps
 
-> sudo apt-get install cmake zlib1g-dev libboost-system-dev libboost-program-options-dev libpthread-stubs0-dev libfuse-dev libudev-dev fuse build-essential git
+> sudo apt-get install cmake pkg-config zlib1g-dev libboost-system-dev libboost-program-options-dev libpthread-stubs0-dev libfuse-dev libudev-dev fuse build-essential git
 > mkdir console-client   
 > git clone https://github.com/pcloudcom/console-client.git ./console-client/  
 > cd ./console-client/pCloudCC/   
@@ -97,8 +97,8 @@ Current version of `pcloudcc` doesn't support command to check if threre are pen
 Locally cached files are located under `~/.pcloud/Cache` dir. When there is only one file `~/.pcloud/Cache/cached` (ususally big sized) this mean that transfers are completed.
 
 ## Debian
-To create a debian package form the source use:  
-> debuild -i -us -uc -b  
+To create a debian package from the source use:
+> dpkg-buildpackage -us -uc -b
 
 ## Older pre-built packages (no EU server supprt)
 - Ubuntu 18.04 64 bit

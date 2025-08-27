@@ -1,2 +1,5 @@
 *.o
 *.a
+pCloudCC/debian/pcloudcc.debhelper.log
+pCloudCC/debian/pcloudcc.substvars
+pCloudCC/debian/files

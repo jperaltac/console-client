@@ -4,8 +4,14 @@
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
 
+override_dh_auto_configure:
+	cd lib/pclsync && make clean && make fs
+	cd lib/mbedtls && cmake . && make clean && make
+	dh_auto_configure
+
 #override_dh_shlibdeps:
-#    dh_shlibdeps --dpkg-shlibdeps-params=--ignore-missing-info
+#dh_shlibdeps --dpkg-shlibdeps-params=--ignore-missing-info
 
 %:
-	dh $@ 
+	dh $@
+
