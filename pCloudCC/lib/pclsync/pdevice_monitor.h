@@ -2,6 +2,9 @@
 
 #ifndef _PDEVICE_MONITOR
 #define _PDEVICE_MONITOR
+#ifdef P_DEVMON_OFF
+static inline void psync_devmon_init(void) {}
+#else
 #include <stdint.h>
 #include "psynclib.h"
 
@@ -34,5 +37,6 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
+#endif /* P_DEVMON_OFF */
 
 #endif //_PDEVICE_MONITOR

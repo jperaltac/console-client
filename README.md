@@ -11,8 +11,13 @@ This is a simple linux console client for pCloud cloud storage.
 Also requires   
 [CMake](https://cmake.org/) build system.  
 
-On Ubuntu you can run the following command:  
+On Ubuntu you can run the following command:
 > sudo apt-get install cmake zlib1g-dev libboost-system-dev libboost-program-options-dev libpthread-stubs0-dev libfuse-dev libudev-dev
+
+If `libudev-dev` is not available, the device monitor can be disabled by
+passing the `P_DEVMON_OFF=1` flag when building the sync library:
+
+> make fs P_DEVMON_OFF=1
 
 ## Build steps
 
